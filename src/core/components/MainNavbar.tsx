@@ -1,0 +1,92 @@
+import { useState } from 'react';
+import { Navbar, Center, Tooltip, createStyles, Stack, rem, Image, Text } from '@mantine/core';
+import logo1R from '../../assets/images/1R-logo.svg'
+
+const useStyles = createStyles((theme) => ({
+    link: {
+        width: rem(50),
+        height: rem(50),
+        borderRadius: theme.radius.sm,
+        fontSize: "20px",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: theme.white,
+        opacity: 0.75,
+        borderLeft: `2px solid transparent`,
+        cursor: "pointer",
+        transition: "0.2s all",
+        '&:hover': {
+            borderLeft: `2px solid ${theme.white}`,
+            opacity: 1,
+        },
+    },
+
+    active: {
+        opacity: 1,
+        borderLeft: `2px solid ${theme.white}`,
+    },
+}));
+
+interface NavbarLinkProps {
+    icon: string;
+    label: string;
+    active?: boolean;
+    onClick?(): void;
+}
+
+function NavbarLink({ icon, label, active, onClick }: NavbarLinkProps) {
+    const { classes, cx } = useStyles();
+    return (
+        <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
+            <Text component='a' onClick={onClick} w={"100%"} className={cx(classes.link, { [classes.active]: active })}>
+                <span className={icon}></span>
+            </Text>
+        </Tooltip>
+    );
+}
+
+const mockdata = [
+    { icon: "icon-dashboard", label: 'Dashboard' },
+    { icon: "icon-projects", label: 'Projects' },
+    { icon: "icon-team", label: 'Teams' },
+    { icon: "icon-organization", label: 'Organization' },
+    { icon: "icon-reimbursement", label: 'Reimbursement' },
+    { icon: "icon-finance", label: 'Finance' },
+];
+
+function MainNavbar() {
+    const [active, setActive] = useState(5);
+
+    const links = mockdata.map((link: any, index) => (
+        <NavbarLink
+            {...link}
+            key={link.label}
+            active={index === active}
+            onClick={() => setActive(index)}
+        />
+    ));
+
+    return (
+        <Stack
+            h={"100%"}
+            w={"100%"}
+            p={0}
+            sx={(theme) => ({
+                backgroundColor: theme.fn.variant({ variant: 'filled', color: theme.primaryColor })
+                    .background,
+            })}
+        >
+            <Center p="md">
+                <Image width={32} fit='contain' src={logo1R} alt='1R-logo' />
+            </Center>
+            <Navbar.Section grow mt={50}>
+                <Stack justify="center" spacing={0}>
+                    {links}
+                </Stack>
+            </Navbar.Section>
+        </Stack>
+    );
+}
+
+export default MainNavbar;

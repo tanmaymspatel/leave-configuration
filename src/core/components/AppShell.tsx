@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import {
     AppShell,
-    Navbar,
     Header,
-    Footer,
-    Aside,
     Text,
     MediaQuery,
     Burger,
     useMantineTheme,
 } from '@mantine/core';
+import MainNavbar from './MainNavbar';
 
 function AppShellLayout() {
     const theme = useMantineTheme();
@@ -23,23 +21,7 @@ function AppShellLayout() {
             }}
             navbarOffsetBreakpoint="sm"
             asideOffsetBreakpoint="sm"
-            navbar={
-                <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-                    <Text>Application navbar</Text>
-                </Navbar>
-            }
-            aside={
-                <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-                    <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-                        <Text>Application sidebar</Text>
-                    </Aside>
-                </MediaQuery>
-            }
-            footer={
-                <Footer height={60} p="md">
-                    Application footer
-                </Footer>
-            }
+            navbar={<MainNavbar />}
             header={
                 <Header height={{ base: 50, md: 70 }} p="md">
                     <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
