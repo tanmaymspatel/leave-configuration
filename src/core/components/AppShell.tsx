@@ -10,6 +10,7 @@ import {
     createStyles,
 } from '@mantine/core';
 import MainNavbar from './MainNavbar';
+import MainHeader from './MainHeader';
 
 const useStyle = createStyles(() => ({
     'nav-hamburger': {
@@ -51,26 +52,7 @@ function AppShellLayout() {
                 </Navbar>
             }
             header={
-                <MediaQuery smallerThan="sm" styles={!opened ? { left: 0 } : {}}>
-                    <Header height={{ base: 50, md: 70 }} p="md" >
-                        <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                            <MediaQuery largerThan="sm" styles={{ display: 'none' }}
-                            >
-                                <MediaQuery smallerThan="sm" styles={opened ? { display: 'none' } : { display: "block" }}>
-
-                                    <Burger
-                                        opened={opened}
-                                        onClick={() => setOpened((o) => !o)}
-                                        size="sm"
-                                        color={theme.colors.gray[6]}
-                                        mr="xl"
-                                    />
-                                </MediaQuery>
-                            </MediaQuery>
-                            <Text>Application header</Text>
-                        </div>
-                    </Header>
-                </MediaQuery>
+                <MainHeader opened={opened} setOpened={setOpened} />
             }
             layout='alt'
         >
