@@ -1,3 +1,4 @@
+import '../../assets/icons/style.css';
 import { Global } from '@mantine/core';
 /**
  * @returns Global styles for the application
@@ -16,7 +17,16 @@ function GlobalStyles() {
                 },
                 'html,body': {
                     overflow: "hidden"
-                }
+                },
+                '.flex-grow-1': {
+                    flexGrow: 1
+                },
+                '.h-100': {
+                    height: "100%"
+                },
+                '.w-100': {
+                    width: "100%"
+                },
             })}
         />
     )

@@ -1,19 +1,28 @@
 import { useState } from 'react';
 import {
     AppShell,
-    Navbar,
     Header,
-    Footer,
-    Aside,
     Text,
     MediaQuery,
     Burger,
     useMantineTheme,
+    Navbar,
+    createStyles,
 } from '@mantine/core';
+import MainNavbar from './MainNavbar';
+
+const useStyle = createStyles(() => ({
+    'nav-hamburger': {
+        position: "absolute",
+        top: "1rem",
+        left: "1rem"
+    }
+}))
 
 function AppShellLayout() {
     const theme = useMantineTheme();
     const [opened, setOpened] = useState(false);
+    const { classes } = useStyle();
     return (
         <AppShell
             styles={{
@@ -22,41 +31,48 @@ function AppShellLayout() {
                 },
             }}
             navbarOffsetBreakpoint="sm"
-            asideOffsetBreakpoint="sm"
             navbar={
-                <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-                    <Text>Application navbar</Text>
+                <Navbar
+                    hiddenBreakpoint="sm"
+                    hidden={!opened}
+                    width={{ base: "100%", sm: 80 }}
+                >
+                    <MediaQuery largerThan="sm" styles={{ display: 'none' }}
+                    >
+                        <Burger
+                            opened={opened}
+                            onClick={() => setOpened((o) => !o)}
+                            size="sm"
+                            color={theme.black}
+                            className={classes['nav-hamburger']}
+                        />
+                    </MediaQuery>
+                    <MainNavbar />
                 </Navbar>
             }
-            aside={
-                <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
-                    <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-                        <Text>Application sidebar</Text>
-                    </Aside>
+            header={
+                <MediaQuery smallerThan="sm" styles={!opened ? { left: 0 } : {}}>
+                    <Header height={{ base: 50, md: 70 }} p="md" >
+                        <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+                            <MediaQuery largerThan="sm" styles={{ display: 'none' }}
+                            >
+                                <MediaQuery smallerThan="sm" styles={opened ? { display: 'none' } : { display: "block" }}>
+
+                                    <Burger
+                                        opened={opened}
+                                        onClick={() => setOpened((o) => !o)}
+                                        size="sm"
+                                        color={theme.colors.gray[6]}
+                                        mr="xl"
+                                    />
+                                </MediaQuery>
+                            </MediaQuery>
+                            <Text>Application header</Text>
+                        </div>
+                    </Header>
                 </MediaQuery>
             }
-            footer={
-                <Footer height={60} p="md">
-                    Application footer
-                </Footer>
-            }
-            header={
-                <Header height={{ base: 50, md: 70 }} p="md">
-                    <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                        <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
-                            <Burger
-                                opened={opened}
-                                onClick={() => setOpened((o) => !o)}
-                                size="sm"
-                                color={theme.colors.gray[6]}
-                                mr="xl"
-                            />
-                        </MediaQuery>
-
-                        <Text>Application header</Text>
-                    </div>
-                </Header>
-            }
+            layout='alt'
         >
             <Text>Resize app to see responsive navbar in action</Text>
         </AppShell>
