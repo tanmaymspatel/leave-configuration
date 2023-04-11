@@ -8,7 +8,12 @@ import {
     useMantineTheme,
     Navbar,
     createStyles,
+    Group,
+    Stack,
+    Grid,
 } from '@mantine/core';
+
+import LeaveNavbar from '../../components/leave-configuration/LeaveNavbar'
 import MainNavbar from './MainNavbar';
 import MainHeader from './MainHeader';
 
@@ -56,7 +61,15 @@ function AppShellLayout() {
             }
             layout='alt'
         >
-            <Text>Resize app to see responsive navbar in action</Text>
+            <Grid>
+                <Grid.Col sm={4}>
+                    <LeaveNavbar />
+                </Grid.Col>
+                <Grid.Col sm={8}>
+                    <header>Header</header>
+                    <main>main content</main>
+                </Grid.Col>
+            </Grid>
         </AppShell>
     );
 }
