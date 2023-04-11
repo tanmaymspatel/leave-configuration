@@ -8,8 +8,8 @@ function App() {
   return (
     <MantineProvider>
       <GlobalStyles />
-      <MainApp />
-      {/* <AppShellLayout /> */}
+      {/* <MainApp /> */}
+      <AppShellLayout />
     </MantineProvider>
   )
 };
