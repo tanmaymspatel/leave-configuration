@@ -1,4 +1,4 @@
-import { MediaQuery, Header, Burger, useMantineTheme, Group, Image, Text, TextInput, ActionIcon } from '@mantine/core';
+import { MediaQuery, Header, Burger, useMantineTheme, Group, Image, Text, TextInput, ActionIcon, createStyles } from '@mantine/core';
 
 import addLeave from '../../assets/images/icon-add.svg';
 import iconSearch from '../../assets/images/icon-search.svg';
@@ -7,17 +7,22 @@ import iconNotifications from '../../assets/images/icon-notification.svg';
 import iconHelp from '../../assets/images/icon-help.svg';
 import imageUser from '../../assets/images/image-employee.svg';
 
+const useStyle = createStyles(() => ({
+    header: {
+        left: "80px",
+    }
+}))
 function MainHeader({ opened, setOpened }: any) {
 
     const theme = useMantineTheme();
+    const { classes } = useStyle();
     return (
         <MediaQuery smallerThan="sm" styles={!opened ? { left: 0 } : {}}>
-            <Header height={"70"} p="md" >
+            <Header height={"70"} p="md" className={classes.header}>
                 <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                     <MediaQuery largerThan="sm" styles={{ display: 'none' }}
                     >
                         <MediaQuery smallerThan="sm" styles={opened ? { display: 'none' } : { display: "block" }}>
-
                             <Burger
                                 opened={opened}
                                 onClick={() => setOpened((o: boolean) => !o)}
