@@ -17,10 +17,10 @@ function MainHeader({ opened, setOpened }: any) {
     const theme = useMantineTheme();
     const { classes } = useStyle();
     return (
-        <MediaQuery smallerThan="sm" styles={!opened ? { left: 0 } : {}}>
+        <MediaQuery smallerThan="md" styles={!opened ? { left: 0 } : {}}>
             <Header height={"70"} p="md" className={classes.header}>
                 <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-                    <MediaQuery largerThan="sm" styles={{ display: 'none' }}
+                    <MediaQuery largerThan="md" styles={{ display: 'none' }}
                     >
                         <MediaQuery smallerThan="sm" styles={opened ? { display: 'none' } : { display: "block" }}>
                             <Burger

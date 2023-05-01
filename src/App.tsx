@@ -1,14 +1,23 @@
 import { MantineProvider } from '@mantine/core';
 import GlobalStyles from './core/components/GlobalStyles';
 import AppShellLayout from './core/components/AppShell';
-import MainApp from './core/components/MainApp';
+
+import "./App.css"
 
 function App() {
 
   return (
-    <MantineProvider>
+    <MantineProvider
+      theme={{
+        breakpoints: {
+          xs: '30em',
+          sm: '36em',
+          md: '48em',
+          lg: '62em',
+          xl: '75em',
+        }
+      }}>
       <GlobalStyles />
-      {/* <MainApp /> */}
       <AppShellLayout />
     </MantineProvider>
   )

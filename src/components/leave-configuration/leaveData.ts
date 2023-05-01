@@ -1,0 +1,136 @@
+const LeaveData = [
+    {
+        id: 1,
+        name: "Army Leave",
+        duration: "15 Days",
+        tag: "Custom Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "AL",
+        type: "Paid",
+        cantClubWith: ["Subbatical Leave", "Sick Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 2,
+        name: "Bereavement Leave",
+        duration: "3 Days",
+        tag: "Custom Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "BL",
+        type: "Paid",
+        cantClubWith: ["Subbatical Leave", "Sick Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 3,
+        name: "Casual Leave 1.1",
+        duration: "8 Days",
+        tag: "Cusual Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "CL",
+        type: "Paid",
+        cantClubWith: ["Subbatical Leave", "Sick Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 4,
+        name: "Casual Leave 1.2",
+        duration: "8 Days",
+        tag: "Cusual Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "CL",
+        type: "Paid",
+        cantClubWith: ["Subbatical Leave", "Sick Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 5,
+        name: "Comp-Off Leave",
+        duration: "200 Days",
+        tag: "Cusual Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "Comp.L",
+        type: "Paid",
+        cantClubWith: ["Subbatical Leave", "Sick Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 6,
+        name: "Festival Leave",
+        duration: "2 Days",
+        tag: "Cusual Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "FL",
+        type: "Paid",
+        cantClubWith: ["Subbatical Leave", "Sick Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 7,
+        name: "Maternity Leave",
+        duration: null,
+        tag: "Maternity Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "ML",
+        type: "Paid",
+        cantClubWith: ["Sick Leave", "Festival Leave", "Casual Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 8,
+        name: "Paternity Leave",
+        duration: null,
+        tag: "Paternity Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "ML",
+        type: "Paid",
+        cantClubWith: ["Sick Leave", "Festival Leave", "Casual Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 9,
+        name: "Sabbatical Leave",
+        duration: null,
+        tag: "Sabbatical Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "Sab.L",
+        type: "Paid",
+        cantClubWith: ["Maternity Leave", "Paternity Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 10,
+        name: "Sick Leave",
+        duration: "7 Days",
+        tag: "Sick Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "SL",
+        type: "Paid",
+        cantClubWith: ["Maternity Leave", "Paternity Leave"],
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+    {
+        id: 11,
+        name: "Unpaid Leave",
+        duration: "365 Days",
+        tag: "Unpaid Leave",
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        code: "UL",
+        type: "Unpaid",
+        cantClubWith: null,
+        updatedBy: "Samim Shaikh",
+        date: "01 November, 2022"
+    },
+]
+
+export default LeaveData;

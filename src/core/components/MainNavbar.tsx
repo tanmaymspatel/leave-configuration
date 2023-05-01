@@ -20,7 +20,7 @@ const useStyles = createStyles((theme) => ({
             borderLeft: `2px solid ${theme.white}`,
             opacity: 1,
         },
-        [theme.fn.smallerThan('sm')]: {
+        [theme.fn.smallerThan('md')]: {
             justifyContent: "start",
             paddingLeft: "70px"
         }
@@ -29,7 +29,7 @@ const useStyles = createStyles((theme) => ({
     active: {
         opacity: 1,
         borderLeft: `2px solid ${theme.white}`,
-        [theme.fn.smallerThan('sm')]: {
+        [theme.fn.smallerThan('md')]: {
             backgroundColor: theme.fn.lighten(
                 theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background!,
                 0.1
@@ -37,7 +37,7 @@ const useStyles = createStyles((theme) => ({
         }
     },
     imageContainer: {
-        [theme.fn.smallerThan('sm')]: {
+        [theme.fn.smallerThan('md')]: {
             justifyContent: "start",
             paddingLeft: "70px"
         }
@@ -57,7 +57,7 @@ function NavbarLink({ icon, label, active, onClick }: NavbarLinkProps) {
         <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
             <Text component='a' onClick={onClick} w={"100%"} className={cx(classes.link, { [classes.active]: active })}>
                 <Text className={icon}></Text>
-                <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+                <MediaQuery largerThan="md" styles={{ display: "none" }}>
                     <Text ml="lg">{label}</Text>
                 </MediaQuery>
             </Text>

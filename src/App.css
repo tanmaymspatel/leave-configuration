@@ -1,0 +1,40 @@
+/**
+leave sidebar checkbox
+*/
+
+#toggleLeaveSidebar {
+    display: none;
+}
+
+.toggle-arrow {
+    position: absolute;
+    top: 50%;
+    right: -35px;
+}
+
+.leave-navbar {
+    position: relative;
+    height: 100%;
+}
+
+.toggle-arrow,
+.leave-navbar {
+    transition: 0.35s all;
+}
+
+@media only screen and (max-width: 768px) {
+    .leave-navbar {
+        transform: translateX(-320px);
+        position: absolute;
+        left: 80px;
+        z-index: 99;
+    }
+
+    #toggleLeaveSidebar:checked~.leave-navbar {
+        transform: translateX(-80px)
+    }
+
+    #toggleLeaveSidebar:checked~.leave-navbar .toggle-arrow {
+        transform: rotate(180deg)
+    }
+}

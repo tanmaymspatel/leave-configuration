@@ -12,7 +12,7 @@ function GlobalStyles() {
                     padding: 0,
                     boxSizing: 'border-box',
                 },
-                'html,body,#root,.app': {
+                'html,body,#root,.app, .mantine-AppShell-body': {
                     height: "100%"
                 },
                 'html,body': {

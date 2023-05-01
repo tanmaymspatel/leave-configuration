@@ -1,6 +1,7 @@
-import { Navbar, Group, Code, ScrollArea, createStyles, rem, Title } from '@mantine/core';
+import { Navbar, Group, Code, ScrollArea, createStyles, rem, Title, MediaQuery } from '@mantine/core';
 
 import { LinksGroup } from './LinksGroup';
+import { IconArrowBadgeLeft, IconArrowRight } from '@tabler/icons-react';
 
 const mockdata = [
     {
@@ -33,6 +34,9 @@ const useStyles = createStyles((theme) => ({
         paddingBottom: 0,
         position: "static",
         marginRight: 0,
+        transition: "0.3s all",
+        // [theme.fn.smallerThan('md')]: {
+        // }
     },
 
     links: {
@@ -44,6 +48,7 @@ const useStyles = createStyles((theme) => ({
         paddingTop: theme.spacing.xl,
         paddingBottom: theme.spacing.xl,
     },
+
 
 }));
 function LeaveNavbar() {
@@ -60,9 +65,18 @@ function LeaveNavbar() {
                 <div className={classes.linksInner}>{links}</div>
             </Navbar.Section>
 
-            <Navbar.Section>
-                leave-footer
-            </Navbar.Section>
+            <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
+                <Navbar.Section>
+                    <Group position='right'>
+                        <IconArrowBadgeLeft size="40px" style={{ cursor: "pointer" }} />
+                    </Group>
+                </Navbar.Section>
+            </MediaQuery>
+            <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
+                <label className="toggle-arrow" htmlFor="toggleLeaveSidebar">
+                    <IconArrowRight size={"32px"} />
+                </label>
+            </MediaQuery>
         </Navbar>
     );
 }
